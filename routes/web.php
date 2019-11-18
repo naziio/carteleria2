@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/getWeatherStation', 'ControlController@getWeather')->name('getWeather');
+Route::get('/getDailyProgram', 'ControlController@getDailyProgram')->name('getDailyProgram');
+Route::get('/getSighting', 'ControlController@getSighting')->name('getSighting');

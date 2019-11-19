@@ -8,10 +8,40 @@ const router = new Router({
 
     routes: [
         {
-            path: '/:id?',
+            path: '/',
             component: Dashboard
         },
-  
+        {
+            path: '/state-two',
+            component: Dashboard,
+           
+        },
+        {
+            path: '/state-three',
+            component: Dashboard,
+          
+        },
+        {
+            path: '/state-four',
+            component: Dashboard,
+           
+        },           
+        {
+            path: '/state-five',
+            component: Dashboard,
+           
+        },           
+        {
+            path: '/state-six',
+            component: Dashboard,
+           
+        },           
+        {
+            path: '/state-seven',
+            component: Dashboard,
+           
+        },           
+    
     ],
 
 })

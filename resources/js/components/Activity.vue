@@ -64,5 +64,6 @@
      margin-left: 10px;
      color:white;
      font-size: 31.14px;
+    font-family: FuturaStdBook;
   }
 </style>

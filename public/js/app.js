@@ -2007,36 +2007,44 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.state === 1) {
         this.state = 2;
+        this.$router.push('state-two'); // setTimeout(() => { this.visualizeContentTransition() }, '5000');
+
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
       } else if (this.state === 2) {
         this.state = 3;
+        this.$router.push('state-three');
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
       } else if (this.state === 3) {
         this.state = 4;
+        this.$router.push('state-four');
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
       } else if (this.state === 4) {
         this.state = 5;
+        this.$router.push('state-five');
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
       } else if (this.state === 5) {
         this.state = 6;
+        this.$router.push('state-six');
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
       } else if (this.state === 6) {
         this.state = 7;
+        this.$router.push('state-seven');
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
       } else if (this.state === 7) {
         this.state = 1;
+        this.$router.push('/');
         setTimeout(function () {
           _this2.visualizeContentTransition();
         }, '5000');
@@ -6833,7 +6841,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.title[data-v-7b44e8fa]{\n  color:white;\n  position: relative;\n  /*margin-left: 10px;*/\n}\n.title-sty[data-v-7b44e8fa]{\n  font-family: FuturaStdBook;\n  font-size: 25px;\n}\n.description[data-v-7b44e8fa]{\n  margin-top: 9em;\n}\n.hour[data-v-7b44e8fa]{\n  color:white;\n  font-size: 46px;\n  font-family: FuturaStdBook;\n\n  margin-left: 10px;\n}\n.text-description[data-v-7b44e8fa]{\n   margin-left: 10px;\n   color:white;\n   font-size: 31.14px;\n}\n", ""]);
+exports.push([module.i, "\n.title[data-v-7b44e8fa]{\n  color:white;\n  position: relative;\n  /*margin-left: 10px;*/\n}\n.title-sty[data-v-7b44e8fa]{\n  font-family: FuturaStdBook;\n  font-size: 25px;\n}\n.description[data-v-7b44e8fa]{\n  margin-top: 9em;\n}\n.hour[data-v-7b44e8fa]{\n  color:white;\n  font-size: 46px;\n  font-family: FuturaStdBook;\n\n  margin-left: 10px;\n}\n.text-description[data-v-7b44e8fa]{\n   margin-left: 10px;\n   color:white;\n   font-size: 31.14px;\n  font-family: FuturaStdBook;\n}\n", ""]);
 
 // exports
 
@@ -98645,7 +98653,25 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
-    path: '/:id?',
+    path: '/',
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/state-two',
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/state-three',
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/state-four',
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/state-five',
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/state-six',
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/state-seven',
     component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
   }]
 });

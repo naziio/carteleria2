@@ -35,8 +35,11 @@
   .title{
     color:white;
     position: relative;
-    margin-top: 3em;
+    margin-top: 2em;
     margin-left: 4em;
+    font-family: FuturaStdBook;
+    font-size: 25px;
+
   }
 
 

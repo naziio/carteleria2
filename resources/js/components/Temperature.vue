@@ -1,7 +1,7 @@
 <template>
   <div class="temperature">
     <div class="title">
-          <h5>Weather</h5>
+         <span class="title-sty">Weather</span>
     </div>
     <span class="icon-lm" style="display:inline;">
        <img src="iconos/png/signage_iconos-07.png"  class="icon cloudy" alt="" width="125px;" height="125px;">
@@ -11,7 +11,7 @@
     <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row">
         <h4 class="text-center title-temperature">  -4° <span class="type-medide">c</span></h4>
     </div>
-        <h6 style="display:flex; justify-content:center;color:white">Temperature</h6>
+        <h6 class="subtitle" style="display:flex; justify-content:center;color:white">Temperature</h6>
   </div>
 </template>
 
@@ -44,6 +44,10 @@
  .title{
     color:white;
     position: relative;  
+  } 
+  .title-sty{
+    font-family: FuturaStdBook;
+    font-size: 25px;
   }
 
  .temperature{
@@ -76,13 +80,14 @@
 
   .title-temperature{
     font-family: FuturaStdBook;
-    font-size: 5rem;
+    font-size: 103px;
     color:white;
   }  
 
-  .title-wind{
+  .subtitle{
+    font-size: 33.16px;
     font-family: FuturaStdBook;
-    font-size: 7rem;
+
   }
 
   .type-medide{

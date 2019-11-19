@@ -1,7 +1,7 @@
 <template>
   <div class="activity-component">
     <div class="title">
-          <h5>Next Activity</h5>
+          <span class="title-sty">Next Activity</span>
     </div>
     
     <div class="description">
@@ -45,19 +45,24 @@
     /*margin-left: 10px;*/
   
   }
-
+  .title-sty{
+    font-family: FuturaStdBook;
+    font-size: 25px;
+  }
   .description{
-    margin-top: 6em;
+    margin-top: 9em;
   }  
 
   .hour{
     color:white;
-    font-size: 32px;
+    font-size: 46px;
+    font-family: FuturaStdBook;
+
     margin-left: 10px;
   }
   .text-description{
      margin-left: 10px;
      color:white;
-     font-size: 22px;
+     font-size: 31.14px;
   }
 </style>

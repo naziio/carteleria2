@@ -21,7 +21,7 @@
       data(){
         return{
           state: 1,
-          videoState: "videos/daily.mov",
+          videoState: "videos/daily.mp4",
         }
       },
 
@@ -35,7 +35,6 @@
       mounted() {
   
       },
-
       methods:{
         visualizeContentTransition() {
             
@@ -86,16 +85,16 @@
       watch: {
         state: function (newQuestion, oldQuestion) {
           if ( newQuestion == 3){
-            this.videoState = "videos/weather.mov";
+            this.videoState = "videos/weather.mp4";
           }             
            if ( newQuestion == 4){
-            this.videoState = "videos/weather.mov";
+            this.videoState = "videos/weather.mp4";
           }          
           if ( newQuestion == 1){
-            this.videoState = "videos/daily.mov";
+            this.videoState = "videos/daily.mp4";
           }          
           if ( newQuestion == 2){
-            this.videoState = "videos/daily.mov";
+            this.videoState = "videos/daily.mp4";
           }
         }
       }

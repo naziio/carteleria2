@@ -1,7 +1,7 @@
 <template>
   <div class="content">
       <div class="title">
-          <h5>Ship Camera</h5>
+          <span class="title-sty">Ship Camera</span>
       </div>
       
      <video playsinline autoplay muted loop>
@@ -45,7 +45,10 @@
     position: absolute;  
     padding:2em;
   }
-  
+  .title-sty{
+    font-family: FuturaStdBook;
+    font-size: 25px;
+  }
   video{
     width: 100%;
     height: 100%;

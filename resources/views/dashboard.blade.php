@@ -13,7 +13,16 @@
         <link rel="stylesheet" href="{{asset('css/leaflet.css')}}" />
         {{-- <script src="{{asset('js/jquery.min.js')}}"></script> --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
-       
+       <style>
+        @font-face{
+           font-family: 'FuturaStdBook';
+           src: url("../fonts/FuturaStd-Book.otf");
+        }
+        @font-face{
+           font-family: 'FuturaStdMedium';
+           src: url("../fonts/FuturaStd-Medium.otf");
+        }
+       </style>
 </head>
 <body>
 
@@ -22,7 +31,7 @@
     <dashboard></dashboard>
   </div>
     {{-- <script async src="{{asset('js/leaflet.js')}}"></script> --}}
-    {{-- <script src="{{ asset('js/initial.js') }}"></script> --}}
+    <script src="{{ asset('js/initial.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

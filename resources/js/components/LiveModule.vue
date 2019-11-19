@@ -13,8 +13,8 @@
                 <h4 class="text-center title-temperature" v-if="state == 3">  -4° <span class="type-medide">c</span></h4>
                 <h4 class="text-center title-temperature" v-if="state == 4">  -10° <span class="type-medide">c</span></h4>
             </div>
-            <h3 style="display:flex; justify-content:center" v-if="state == 3">Temperature</h3>
-            <h3 style="display:flex; justify-content:center" v-if="state == 4">Wind Chill</h3>
+            <h3 class="subtitle" style="display:flex; justify-content:center" v-if="state == 3">Temperature</h3>
+            <h3 class="subtitle" style="display:flex; justify-content:center" v-if="state == 4">Wind Chill</h3>
           </div>
         </div>   
         <div class="col-md-3">
@@ -40,7 +40,7 @@
                 <div class="svg-viento winds">
                 </div> 
             </div>
-            <h3 style="display:flex; justify-content:center">Wind</h3>
+            <h3 class="subtitle" style="display:flex; justify-content:center">Wind</h3>
           </div>
         </div>   
         <div class="col-md-3">
@@ -97,7 +97,7 @@
                 </div>
               </div>
             
-              <h3 style="display:flex; justify-content:center;margin-top:5px;">Sunrise / Sunset</h3>
+              <h3 class="subtitle" style="display:flex; justify-content:center;margin-top:5px;">Sunrise / Sunset</h3>
           </div>
         </div>
       </div>
@@ -154,7 +154,7 @@
     flex-direction: column;
     color: white;
     justify-content: center;
-    margin-top: 9em;
+    margin-top: 25vh;
    }
 
   .temperature{
@@ -186,12 +186,12 @@
 
   .title-temperature{
     font-family: FuturaStdBook;
-    font-size: 7rem;
+    font-size: 103px;
   }  
 
   .title-wind{
     font-family: FuturaStdBook;
-    font-size: 7rem;
+    font-size: 103px;
   }
 
   .type-medide{
@@ -207,6 +207,11 @@
     position: relative;
     display: inline-block;
     font-size: 1em; /* control icon size here */
+  }
+  .subtitle{
+    font-size: 33.16px;
+    font-family: FuturaStdBook;
+
   }
 
   .cloud {

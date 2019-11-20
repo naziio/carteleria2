@@ -71,5 +71,20 @@ class ControlController extends BaseController
         return $this->sendResponse($publications->toArray(), $message);
     }
 
+    public function getTimePage()
+    {
+        $timePage = [
+          'state1' => 10000,
+          'state2' => 10000,
+          'state3' => 10000,
+          'state4' => 10000,
+          'state5' => 10000,
+          'state6' => 10000,
+          'state7' => 10000,
+          'state8' => 10000
+        ];
+        return $this->sendResponse($timePage, 'Time retrieved successfully.')  ;
+    }
+
 
 }

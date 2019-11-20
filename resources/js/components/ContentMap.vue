@@ -51,7 +51,7 @@
             //     on('locationfound', (e)=> {
             // var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)').addTo(this.map);
             // var marker = L.marker([this.weather.latitude, this.weather.longitude]).bindPopup('Your are here :)').addTo(this.map);
-            this.map.setView([this.lat, this.lng], 5);
+            this.map.setView([this.lat, this.lng], 7);
                   // var marker = L.marker([-65.466863,-62.6201877]).bindPopup('Your are here :)').addTo(this.map);
                   var marker = L.marker([this.lat, this.lng]).bindPopup('Your are here :)').addTo(this.map);
                 // });

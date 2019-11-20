@@ -85,7 +85,7 @@
         },          
         loadSighting(){
           axios.get('/getSighting').then((response) => {
-            console.log(response)
+            // console.log(response)
             // this.data = response.data.data
           });
         },  

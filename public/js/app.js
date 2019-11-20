@@ -1826,7 +1826,7 @@ __webpack_require__.r(__webpack_exports__);
       // var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)').addTo(this.map);
       // var marker = L.marker([this.weather.latitude, this.weather.longitude]).bindPopup('Your are here :)').addTo(this.map);
 
-      this.map.setView([this.lat, this.lng], 5); // var marker = L.marker([-65.466863,-62.6201877]).bindPopup('Your are here :)').addTo(this.map);
+      this.map.setView([this.lat, this.lng], 7); // var marker = L.marker([-65.466863,-62.6201877]).bindPopup('Your are here :)').addTo(this.map);
 
       var marker = L.marker([this.lat, this.lng]).bindPopup('Your are here :)').addTo(this.map); // });
 
@@ -1940,8 +1940,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     loadSighting: function loadSighting() {
-      axios.get('/getSighting').then(function (response) {
-        console.log(response); // this.data = response.data.data
+      axios.get('/getSighting').then(function (response) {// console.log(response)
+        // this.data = response.data.data
       });
     }
   },
@@ -1990,65 +1990,85 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       state: 1,
-      videoState: "videos/daily.mp4"
+      videoState: "videos/daily.mp4",
+      time1: '',
+      time2: '',
+      time3: '',
+      time4: '',
+      time5: '',
+      time6: '',
+      time7: '',
+      time8: ''
     };
   },
-  created: function created() {
-    var _this = this;
-
-    setTimeout(function () {
-      _this.visualizeContentTransition();
-    }, 5000);
+  mounted: function mounted() {
+    this.loadTimePage();
   },
-  mounted: function mounted() {},
   methods: {
     visualizeContentTransition: function visualizeContentTransition() {
-      var _this2 = this;
+      var _this = this;
 
       if (this.state === 1) {
         this.state = 2;
-        this.$router.push('state-two'); // setTimeout(() => { this.visualizeContentTransition() }, '5000');
-
+        this.$router.push('state-two');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time2);
       } else if (this.state === 2) {
         this.state = 3;
         this.$router.push('state-three');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time3);
       } else if (this.state === 3) {
         this.state = 4;
         this.$router.push('state-four');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time4);
       } else if (this.state === 4) {
         this.state = 5;
         this.$router.push('state-five');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time5);
       } else if (this.state === 5) {
         this.state = 6;
         this.$router.push('state-six');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time6);
       } else if (this.state === 6) {
         this.state = 7;
         this.$router.push('state-seven');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time7);
       } else if (this.state === 7) {
         this.state = 1;
         this.$router.push('/');
         setTimeout(function () {
-          _this2.visualizeContentTransition();
-        }, '5000');
+          _this.visualizeContentTransition();
+        }, this.time8);
       }
+    },
+    loadTimePage: function loadTimePage() {
+      var _this2 = this;
+
+      axios.get('/getTimePage').then(function (response) {
+        console.log(response);
+        _this2.time1 = response.data.data.state1;
+        _this2.time2 = response.data.data.state2;
+        _this2.time3 = response.data.data.state3;
+        _this2.time4 = response.data.data.state4;
+        _this2.time5 = response.data.data.state5;
+        _this2.time6 = response.data.data.state6;
+        _this2.time7 = response.data.data.state7;
+        _this2.time8 = response.data.data.state8;
+        setTimeout(function () {
+          _this2.visualizeContentTransition();
+        }, _this2.time1);
+      });
     }
   },
   watch: {

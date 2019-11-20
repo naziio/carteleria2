@@ -1817,8 +1817,8 @@ __webpack_require__.r(__webpack_exports__);
 
       L.tileLayer('http://tile.osm.org/{z}/{x}/{y}.png').addTo(this.map);
       this.map.touchZoom.disable();
-      this.map.doubleClickZoom.disable();
-      this.map.scrollWheelZoom.disable();
+      this.map.doubleClickZoom.disable(); // this.map.scrollWheelZoom.disable();
+
       this.map.boxZoom.disable();
       this.map.keyboard.disable();
       this.map.dragging.disable(); // this.map.locate().
@@ -1826,7 +1826,7 @@ __webpack_require__.r(__webpack_exports__);
       // var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)').addTo(this.map);
       // var marker = L.marker([this.weather.latitude, this.weather.longitude]).bindPopup('Your are here :)').addTo(this.map);
 
-      this.map.setView([this.lat, this.lng], 7); // var marker = L.marker([-65.466863,-62.6201877]).bindPopup('Your are here :)').addTo(this.map);
+      this.map.setView([this.lat, this.lng], 6); // var marker = L.marker([-65.466863,-62.6201877]).bindPopup('Your are here :)').addTo(this.map);
 
       var marker = L.marker([this.lat, this.lng]).bindPopup('Your are here :)').addTo(this.map); // });
 
@@ -1916,12 +1916,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      data: {}
+      data: {},
+      information: {}
     };
   },
   mounted: function mounted() {
     this.loadDaily();
-    this.loadSighting();
+    this.loadInformation();
     setTimeout(function () {
       $('.sty-0').addClass('active');
     }, '2000');
@@ -1939,9 +1940,17 @@ __webpack_require__.r(__webpack_exports__);
         _this.data = response.data.data;
       });
     },
+    loadInformation: function loadInformation() {
+      var _this2 = this;
+
+      axios.get('/getInformation').then(function (response) {
+        // console.log(response.data.data)
+        _this2.information = response.data.data;
+      });
+    },
     loadSighting: function loadSighting() {
-      axios.get('/getSighting').then(function (response) {// console.log(response)
-        // this.data = response.data.data
+      axios.get('/getSighting').then(function (response) {
+        console.log(response); // this.data = response.data.data
       });
     }
   },
@@ -2008,13 +2017,13 @@ __webpack_require__.r(__webpack_exports__);
     visualizeContentTransition: function visualizeContentTransition() {
       var _this = this;
 
+      // if(this.state === 1){
+      //     this.state = 2;
+      //     this.$router.push('state-two')
+      //    setTimeout(() => { this.visualizeContentTransition() }, this.time2);
+      // }
+      // else if(this.state === 2){
       if (this.state === 1) {
-        this.state = 2;
-        this.$router.push('state-two');
-        setTimeout(function () {
-          _this.visualizeContentTransition();
-        }, this.time2);
-      } else if (this.state === 2) {
         this.state = 3;
         this.$router.push('state-three');
         setTimeout(function () {
@@ -2056,7 +2065,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get('/getTimePage').then(function (response) {
-        console.log(response);
         _this2.time1 = response.data.data.state1;
         _this2.time2 = response.data.data.state2;
         _this2.time3 = response.data.data.state3;
@@ -70458,7 +70466,7 @@ var render = function() {
         attrs: { playsinline: "", autoplay: "", muted: "", loop: "" },
         domProps: { muted: true }
       },
-      [_c("source", { attrs: { src: "videos/daily.mov", type: "video/mp4" } })]
+      [_c("source", { attrs: { src: "videos/daily.mp4", type: "video/mp4" } })]
     )
   ])
 }
@@ -70622,27 +70630,13 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-3" }, [
-      _vm.state == 1
-        ? _c("div", { staticClass: "title-left" }, [
-            _c("h3", [_vm._v("INFORMATION")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "information" }, [
-              _vm._v(
-                " We invite all passenger to visit out store and learn about our product catalog, open from 16:00 to 18:00."
-              )
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.state == 2
-        ? _c("div", { staticClass: "title-left" }, [
-            _c("h3", [_vm._v("ALERT")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "information" }, [
-              _vm._v("Go with caution, winds of more the 200 km/h.")
-            ])
-          ])
-        : _vm._e()
+      _c("div", { staticClass: "title-left" }, [
+        _c("h3", [_vm._v(_vm._s(_vm.information.title_en))]),
+        _vm._v(" "),
+        _c("span", { staticClass: "information" }, [
+          _vm._v(_vm._s(_vm.information.description_en))
+        ])
+      ])
     ])
   ])
 }
@@ -98675,10 +98669,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: '/',
     component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }, {
-    path: '/state-two',
-    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }, {
+  }, // {
+  //     path: '/state-two',
+  //     component: Dashboard,
+  // },
+  {
     path: '/state-three',
     component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {

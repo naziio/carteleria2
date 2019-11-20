@@ -5,7 +5,7 @@
       </div>
       
      <video playsinline autoplay muted loop>
-          <source src="videos/daily.mov"  type="video/mp4"/>
+          <source src="videos/daily.mp4"  type="video/mp4"/>
       </video>
   </div>
 </template>

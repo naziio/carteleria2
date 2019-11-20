@@ -33,14 +33,14 @@
         </Slider>
       </div>
       <div class="col-md-3">
-        <div class="title-left" v-if="state == 1">
-          <h3>INFORMATION</h3>
-          <span class="information"> We invite all passenger to visit out store and learn about our product catalog, open from 16:00 to 18:00.</span>
+        <div class="title-left">
+          <h3>{{ information.title_en}}</h3>
+          <span class="information">{{information.description_en}}</span>
         </div>        
-        <div class="title-left" v-if="state == 2">
+       <!--  <div class="title-left" v-if="state == 2">
           <h3 >ALERT</h3>
           <span class="information">Go with caution, winds of more the 200 km/h.</span>
-        </div>   
+        </div>    -->
       </div>
   </div>
 </template>
@@ -56,11 +56,12 @@
       data(){
         return{
           data: {},
+          information: {},
         }
       },
       mounted() {
         this.loadDaily();
-        this.loadSighting();
+        this.loadInformation();
       
        setTimeout(() => { $('.sty-0').addClass('active'); }, '2000');
 
@@ -82,10 +83,16 @@
           axios.get('/getDailyProgram').then((response) => {
             this.data = response.data.data
           });
+        },        
+        loadInformation(){
+          axios.get('/getInformation').then((response) => {
+            // console.log(response.data.data)
+            this.information = response.data.data
+          });
         },          
         loadSighting(){
           axios.get('/getSighting').then((response) => {
-            // console.log(response)
+            console.log(response)
             // this.data = response.data.data
           });
         },  

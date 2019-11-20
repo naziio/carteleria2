@@ -42,7 +42,7 @@
 
             this.map.touchZoom.disable();
             this.map.doubleClickZoom.disable();
-            this.map.scrollWheelZoom.disable();
+            // this.map.scrollWheelZoom.disable();
             this.map.boxZoom.disable();
             this.map.keyboard.disable();
             this.map.dragging.disable();
@@ -51,7 +51,7 @@
             //     on('locationfound', (e)=> {
             // var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)').addTo(this.map);
             // var marker = L.marker([this.weather.latitude, this.weather.longitude]).bindPopup('Your are here :)').addTo(this.map);
-            this.map.setView([this.lat, this.lng], 7);
+            this.map.setView([this.lat, this.lng], 6);
                   // var marker = L.marker([-65.466863,-62.6201877]).bindPopup('Your are here :)').addTo(this.map);
                   var marker = L.marker([this.lat, this.lng]).bindPopup('Your are here :)').addTo(this.map);
                 // });

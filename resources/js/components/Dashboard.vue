@@ -39,12 +39,13 @@
       methods:{
         visualizeContentTransition() {
 
+            // if(this.state === 1){
+            //     this.state = 2;
+            //     this.$router.push('state-two')
+            //    setTimeout(() => { this.visualizeContentTransition() }, this.time2);
+            // }
+             // else if(this.state === 2){
             if(this.state === 1){
-                this.state = 2;
-                this.$router.push('state-two')
-               setTimeout(() => { this.visualizeContentTransition() }, this.time2);
-            }
-             else if(this.state === 2){
                 this.state = 3;
 
                this.$router.push('state-three')

@@ -11,11 +11,11 @@ const router = new Router({
             path: '/',
             component: Dashboard
         },
-        {
-            path: '/state-two',
-            component: Dashboard,
+        // {
+        //     path: '/state-two',
+        //     component: Dashboard,
            
-        },
+        // },
         {
             path: '/state-three',
             component: Dashboard,

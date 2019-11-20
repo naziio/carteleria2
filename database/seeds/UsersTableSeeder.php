@@ -248,6 +248,68 @@ class UsersTableSeeder extends Seeder
             'description_en' => 'landing',
             'types_id_type' => 1,
         ]);
+
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 1,
+            'title_en' => 'Neko Harbour 1',
+            'hour' => '10:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 2,
+            'title_en' => 'Neko Harbour 2',
+            'hour' => '11:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 1,
+            'title_en' => 'Neko Harbour 3',
+            'hour' => '12:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 1,
+            'title_en' => 'Neko Harbour 4',
+            'hour' => '13:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 1,
+            'title_en' => 'Neko Harbour 5',
+            'hour' => '14:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 1,
+            'title_en' => 'Neko Harbour 6',
+            'hour' => '15:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+        DB::table('daily_programs')->insert([
+            'voyages_id_voyage' => 1,
+            'publications_id_pub' => 1,
+            'title_en' => 'Neko Harbour 7',
+            'hour' => '16:00',
+            'date' => Carbon::now()->toDateString(),
+        ]);
+
+        DB::table('daily_programs_information')->insert([
+            'title_en' => 'INFORMATION',
+            'description_en' => 'We invite all passenger to visit out store and learn about our product catalog, open from 16:00 to 18:00.',
+        ]);
+        DB::table('daily_programs_information')->insert([
+            'title_en' => 'ALERT',
+            'description_en' => 'Go with caution, winds of more the 200 km/h.',
+        ]);
+
         /*
 */
         // DB::table('schedule_descriptions')->insert([

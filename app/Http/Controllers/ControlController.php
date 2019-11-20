@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DailyProgram;
+use App\DailyProgramInformation;
 use App\Http\Controllers\Api\BaseController;
 use App\Menu;
 use App\Publication;
@@ -84,6 +86,20 @@ class ControlController extends BaseController
           'state8' => 10000
         ];
         return $this->sendResponse($timePage, 'Time retrieved successfully.')  ;
+    }
+
+    public function getInformation()
+    {
+        $information = DailyProgramInformation::all();
+        $information = $information->random(1)->first();
+        return $this->sendResponse($information->toArray(), 'Information retrieved successfully.')  ;
+    }
+
+    public function getDailyProgramNew()
+    {
+        $dailyProgram = DailyProgram::get();
+        return $this->sendResponse($dailyProgram->toArray(), 'Daily program retrieved successfully.')  ;
+
     }
 
 

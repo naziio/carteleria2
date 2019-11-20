@@ -38,7 +38,7 @@
       },
       methods:{
         visualizeContentTransition() {
-            
+
             if(this.state === 1){
                 this.state = 2;
                 this.$router.push('state-two')
@@ -53,37 +53,37 @@
             else if(this.state === 3){
 
               this.state = 4;
-            
+
               this.$router.push('state-four')
               setTimeout(() => { this.visualizeContentTransition() }, this.time4);
-            }            
+            }
             else if(this.state === 4){
 
               this.state = 5;
-            
-            
+
+
               this.$router.push('state-five')
               setTimeout(() => { this.visualizeContentTransition() }, this.time5);
             }
             else if(this.state === 5){
 
               this.state = 6;
-            
+
               this.$router.push('state-six')
               setTimeout(() => { this.visualizeContentTransition() }, this.time6);
-            }            
+            }
             else if(this.state === 6){
 
               this.state = 7;
-            
-            
+
+
               this.$router.push('state-seven')
               setTimeout(() => { this.visualizeContentTransition() }, this.time7);
-            }            
+            }
             else if(this.state === 7){
 
               this.state = 1;
-            
+
               this.$router.push('/')
               setTimeout(() => { this.visualizeContentTransition() }, this.time8);
             }
@@ -91,7 +91,6 @@
           },
           loadTimePage(){
             axios.get('/getTimePage').then((response) => {
-              console.log(response)
               this.time1 = response.data.data.state1
               this.time2 = response.data.data.state2
               this.time3 = response.data.data.state3
@@ -101,24 +100,24 @@
               this.time7 = response.data.data.state7
               this.time8 = response.data.data.state8
 
-              setTimeout(() => { 
+              setTimeout(() => {
                  this.visualizeContentTransition()
               }, this.time1);
 
             });
-          },  
+          },
       },
       watch: {
         state: function (newQuestion, oldQuestion) {
           if ( newQuestion == 3){
             this.videoState = "videos/weather.mp4";
-          }             
+          }
            if ( newQuestion == 4){
             this.videoState = "videos/weather.mp4";
-          }          
+          }
           if ( newQuestion == 1){
             this.videoState = "videos/daily.mp4";
-          }          
+          }
           if ( newQuestion == 2){
             this.videoState = "videos/daily.mp4";
           }

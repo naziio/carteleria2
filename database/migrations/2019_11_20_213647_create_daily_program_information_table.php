@@ -28,6 +28,6 @@ class CreateDailyProgramInformationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daily_program_information');
+        Schema::dropIfExists('daily_programs_information');
     }
 }

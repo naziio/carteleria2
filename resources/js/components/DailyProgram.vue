@@ -34,7 +34,7 @@
       </div>
       <div class="col-md-3">
         <div class="title-left">
-          <h3>{{ information.title_en}}</h3>
+          <h3 class="title-information">{{ information.title_en}}</h3>
           <span class="information">{{information.description_en}}</span>
         </div>        
        <!--  <div class="title-left" v-if="state == 2">
@@ -163,6 +163,10 @@
   .information {
     font-family: FuturaStdBook;
     font-size: 30px;
+  }  
 
+  .title-information {
+    font-family: FuturaStdBook;
+    font-size: 31.5px;
   }
 </style>

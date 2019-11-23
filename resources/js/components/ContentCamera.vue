@@ -1,11 +1,11 @@
 <template>
   <div class="content">
       <div class="title">
-          <span class="title-sty">Ship Camera</span>
+          <h4 class="title-sty">Ship Camera</h4>
       </div>
       
      <video playsinline autoplay muted loop>
-          <source src="videos/daily.mp4"  type="video/mp4"/>
+          <source src="videos/video.mp4"  type="video/mp4"/>
       </video>
   </div>
 </template>
@@ -44,14 +44,17 @@
     color:white;
     position: absolute;  
     padding:2em;
+    font-family: FuturaStdBook;
+    font-size: 25px;
+
   }
   .title-sty{
     font-family: FuturaStdBook;
     font-size: 25px;
   }
   video{
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
   }
 
   .content{

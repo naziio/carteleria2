@@ -1,7 +1,7 @@
 <template>
       <div class="title">
           <h4 v-if="state== 1 || state == 2">Daily Program</h4>
-          <h4 v-if="state== 3 || state == 4 ">Weather</h4>
+          <h4 v-if="state== 3 || state == 4   || state == 5  || state == 6  || state == 7">Weather</h4>
       </div>
 </template>
 
@@ -36,7 +36,7 @@
     color:white;
     position: relative;
     margin-top: 2em;
-    margin-left: 4em;
+    margin-left: 3em;
     font-family: FuturaStdBook;
     font-size: 25px;
 

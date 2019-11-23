@@ -76,6 +76,8 @@
     color:white;
     position: absolute;  
     padding:2em;
+    font-family: FuturaStdBook;
+    font-size: 25px;
     z-index: 10000;
   }
   .title-sty{

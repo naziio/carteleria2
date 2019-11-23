@@ -1,17 +1,18 @@
 <template>
   <div class="temperature">
-    <div class="title">
-         <span class="title-sty">Weather</span>
+    <title-project :state="state"/>
+    <div class="content">
+        
+      <span class="icon-lm" style="display:inline;">
+         <img src="iconos/png/signage_iconos-07.png"  class="icon cloudy" alt="" width="125px;" height="125px;">
+         <img src="iconos/png/signage_iconos-07.png"  class="cloud" alt="">
+      </span>
+      
+      <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row">
+          <h4 class="text-center title-temperature">  -4° <span class="type-medide">c</span></h4>
+      </div>
+          <h6 class="subtitle" style="display:flex; justify-content:center;color:white">Temperature</h6>
     </div>
-    <span class="icon-lm" style="display:inline;">
-       <img src="iconos/png/signage_iconos-07.png"  class="icon cloudy" alt="" width="125px;" height="125px;">
-       <img src="iconos/png/signage_iconos-07.png"  class="cloud" alt="">
-    </span>
-    
-    <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row">
-        <h4 class="text-center title-temperature">  -4° <span class="type-medide">c</span></h4>
-    </div>
-        <h6 class="subtitle" style="display:flex; justify-content:center;color:white">Temperature</h6>
   </div>
 </template>
 
@@ -53,7 +54,7 @@
  .temperature{
     display: flex;
     flex-direction: column;
-    margin-left: 1em;
+    /*margin-left: 1em;*/
   }
 
   .info-lm{
@@ -169,5 +170,12 @@
 
   .svg-viento {
       margin-bottom: 23px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+    padding-bottom: 2em;
   }
 </style>

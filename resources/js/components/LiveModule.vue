@@ -46,7 +46,7 @@
         <div class="col-md-3">
           <div class="temperature">
 
-             <h6 class="text-center" style="margin-top:2em;">
+             <h6 class="text-center" style="margin-top:1em;">
                     <span>
                        <img src="iconos/png/flechas.png" alt="" width="220px">
                     </span>
@@ -139,6 +139,9 @@
     color:white;
     position: relative;
     margin-top: 2em;
+  }
+  .hour-time{
+    font-family: FuturaStdBook;
   }
   
   .weather{

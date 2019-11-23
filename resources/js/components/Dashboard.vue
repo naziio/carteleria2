@@ -20,7 +20,7 @@
       components: { DailyProgram, LiveModule},
       data(){
         return{
-          state: 1,
+          state: 6,
           videoState: "videos/daily.mp4",
           time1: '',
           time2: '',
@@ -141,7 +141,8 @@
   video {
       position:absolute;
       z-index:0;
-      width: 100%;
+      /*width: 100%;*/
+      height: 100%
   }
 
 

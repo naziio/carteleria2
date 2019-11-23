@@ -40,9 +40,16 @@
 
 <style scoped>
   .title{
+/*    color:white;
+    position: relative;*/
+    /*margin-left: 10px;*/
     color:white;
     position: relative;
-    /*margin-left: 10px;*/
+    margin-top: 2em;
+    margin-left: 3em;
+    font-family: FuturaStdBook;
+    font-size: 25px;
+
   
   }
   .title-sty{
@@ -50,7 +57,9 @@
     font-size: 25px;
   }
   .description{
-    margin-top: 9em;
+    margin-top: 6em;
+    padding:2em;
+    margin-left: 1em;
   }  
 
   .hour{

@@ -49,22 +49,17 @@
 
 .temperature-weather{
   position: relative;
-  background-color: #5e6f7bb0;;
-  /*padding: 2em;*/
   height: 100%;
   flex: 1;
-  padding-bottom: 2em;
-  padding-top: 2em;
-  padding-left: 1em;
   padding-right: 2em;
+  background: rgba(0,0,0,0.12);
+
 }
 
 .activity{
   position: relative;
-  background-color: #5e6f7bb0;;
-  padding: 2em;
+  background: rgba(0,0,0,0.12);
   height: 100%;
-  border-top: 1px solid #6e8290d9;
 }
 
 .cinco{
@@ -78,8 +73,8 @@
   width: 80%;
   flex-grow: 1;
   height: 100vh;
-  /*background-color: blue;*/
   position: relative;
+  overflow:hidden;
 }
 
 </style>

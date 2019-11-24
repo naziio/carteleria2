@@ -8,15 +8,15 @@
                <img src="iconos/png/signage_iconos-07.png"  class="icon cloudy" alt="">
                <img src="iconos/png/signage_iconos-07.png"  class="cloud" alt="">
             </span>
-            
-            <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row">
-                <h4 class="text-center title-temperature" v-if="state == 3">  -4° <span class="type-medide">c</span></h4>
-                <h4 class="text-center title-temperature" v-if="state == 4">  -10° <span class="type-medide">c</span></h4>
+
+            <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row" >
+                <h4 class="text-center title-temperature" v-if="state == 3">  {{data.temperature}}°<span class="type-medide">c</span></h4>
+                <h4 class="text-center title-temperature" v-if="state == 4">  {{data.temperature}}°<span class="type-medide">c</span></h4>
             </div>
             <h3 class="subtitle" style="display:flex; justify-content:center" v-if="state == 3">Temperature</h3>
             <h3 class="subtitle" style="display:flex; justify-content:center" v-if="state == 4">Wind Chill</h3>
           </div>
-        </div>   
+        </div>
         <div class="col-md-3">
           <div class="temperature">
 
@@ -33,16 +33,16 @@
                 <path class="wind-two" d="M16,320h94c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,320,16,320z" />
                 <path class="wind-one" d="M16,256h64c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,256,16,256z" />
               </svg>
-            
-            <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row">
-                <h4 class="text-center title-wind">  20 <span class="type-medide-wind">km/h</span>
+
+            <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row"  >
+                <h4 class="text-center title-wind">  {{data.wind}} <span class="type-medide-wind">km/h</span>
                 </h4>
                 <div class="svg-viento winds">
-                </div> 
+                </div>
             </div>
             <h3 class="subtitle" style="display:flex; justify-content:center">Wind</h3>
           </div>
-        </div>   
+        </div>
         <div class="col-md-3">
           <div class="temperature">
 
@@ -96,7 +96,7 @@
                   </span>
                 </div>
               </div>
-            
+
               <h3 class="subtitle" style="display:flex; justify-content:center;margin-top:5px;">Sunrise / Sunset</h3>
           </div>
         </div>
@@ -114,6 +114,7 @@
       components: { Slider  },
       data(){
         return{
+            data: {}
         }
       },
 
@@ -121,12 +122,16 @@
 
       },
       mounted() {
+        this.loadWeather();
 
-      
       },
 
       methods:{
-  
+          loadWeather(){
+              axios.get('/getWeatherStation').then((response) => {
+                  this.data = response.data.data
+              });
+          }
 
       }
 
@@ -143,7 +148,7 @@
   .hour-time{
     font-family: FuturaStdBook;
   }
-  
+
   .weather{
     position: relative;
   }
@@ -190,7 +195,7 @@
   .title-temperature{
     font-family: FuturaStdBook;
     font-size: 103px;
-  }  
+  }
 
   .title-wind{
     font-family: FuturaStdBook;
@@ -199,7 +204,7 @@
 
   .type-medide{
     margin-left: -25px;
-  }  
+  }
 
   .type-medide-wind{
     margin-left: 0px;

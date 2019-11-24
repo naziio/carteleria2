@@ -2,14 +2,14 @@
   <div class="temperature">
     <title-project :state="state"/>
     <div class="content">
-        
+
       <span class="icon-lm" style="display:inline;">
          <img src="iconos/png/signage_iconos-07.png"  class="icon cloudy" alt="" width="125px;" height="125px;">
          <img src="iconos/png/signage_iconos-07.png"  class="cloud" alt="">
       </span>
-      
+
       <div class="title-lm" style="display:flex;align-items: center;align-self: center; flex-direction:row">
-          <h4 class="text-center title-temperature">  -4° <span class="type-medide">c</span></h4>
+          <h4 class="text-center title-temperature"> {{data.temperature}}°<span class="type-medide">c</span></h4>
       </div>
           <h6 class="subtitle" style="display:flex; justify-content:center;color:white">Temperature</h6>
     </div>
@@ -23,6 +23,7 @@
       props:['state'],
       data(){
         return{
+            data: {},
         }
       },
 
@@ -30,12 +31,16 @@
 
       },
       mounted() {
+          this.loadWeather();
 
-      
       },
 
-      methods:{    
-
+      methods:{
+          loadWeather(){
+              axios.get('/getWeatherStation').then((response) => {
+                  this.data = response.data.data
+              });
+          }
       }
 
     }
@@ -44,8 +49,8 @@
 <style scoped>
  .title{
     color:white;
-    position: relative;  
-  } 
+    position: relative;
+  }
   .title-sty{
     font-family: FuturaStdBook;
     font-size: 25px;
@@ -83,7 +88,7 @@
     font-family: FuturaStdBook;
     font-size: 103px;
     color:white;
-  }  
+  }
 
   .subtitle{
     font-size: 33.16px;
@@ -93,7 +98,7 @@
 
   .type-medide{
     margin-left: -25px;
-  }  
+  }
 
   .type-medide-wind{
     margin-left: 0px;

@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="content">
-       <content-camera  v-if="state == 6" /> 
+       <content-camera  v-if="state == 6" />
        <content-map v-if="state == 7"/>
     </div>
   </div>
@@ -35,10 +35,10 @@
       },
       mounted() {
 
-      
+
       },
 
-      methods:{    
+      methods:{
 
       }
 
@@ -58,7 +58,7 @@
 
 .activity{
   position: relative;
-  background: rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.22);
   height: 100%;
 }
 

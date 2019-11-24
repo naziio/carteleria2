@@ -111,10 +111,10 @@
       watch: {
         state: function (newQuestion, oldQuestion) {
           if ( newQuestion == 3){
-            this.videoState = "videos/weather.mp4";
+            this.videoState = "videos/fondo_franja.mp4";
           }
            if ( newQuestion == 4){
-            this.videoState = "videos/weather.mp4";
+            this.videoState = "videos/fondo_franja.mp4";
           }
           if ( newQuestion == 1){
             this.videoState = "videos/daily.mp4";

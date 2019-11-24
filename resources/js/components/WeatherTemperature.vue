@@ -58,7 +58,7 @@
 
 .activity{
   position: relative;
-  background: rgba(0,0,0,0.22);
+  background: rgba(0,0,0,0.20);
   height: 100%;
 }
 

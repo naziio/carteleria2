@@ -102,5 +102,21 @@ class ControlController extends BaseController
 
     }
 
+    public function getCurrentDaily()
+    {
+        $dailyProgram = Publication::with(['voyage' => function($query) {
+            $query->where('embark', '>=', Carbon::now()->toDateString())
+                ->where('desembark', '<=',Carbon::now()->toDateString());
+        }])
+            ->where('active', 1)
+            ->where('realization_date','>=',Carbon::now())
+            ->where('description_en','<>','sighting')
+            ->where('description_en','<>','gallery')
+            ->first();
+
+        return $this->sendResponse($dailyProgram->toArray(), 'Daily program retrieved successfully.')  ;
+
+    }
+
 
 }

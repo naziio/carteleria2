@@ -3,11 +3,11 @@
     <div class="title">
           <span class="title-sty">Next Activity</span>
     </div>
-    
+
     <div class="description">
-      
-      <span class="hour"> 15:00</span>
-      <p class="text-description"> Lecture Seabirds by Miguel in..</p>
+
+      <span class="hour">  {{ data.realization_date | hourformat}}</span>
+      <p class="text-description"> {{data.title_en }}</p>
     </div>
 
   </div>
@@ -15,11 +15,13 @@
 
 <script>
     import Bus from '../EventBus';
+    import moment from 'moment'
 
     export default {
       props:['state'],
       data(){
         return{
+            data: {},
         }
       },
 
@@ -27,13 +29,24 @@
 
       },
       mounted() {
+        this.loadCurrentDaily();
 
-      
       },
 
-      methods:{    
+      methods:{
+          loadCurrentDaily(){
+              axios.get('/getCurrentDaily').then((response) => {
+                  this.data = response.data.data
+              });
+          },
+      },
+        filters: {
+            hourformat: function (value) {
+                if (value)
+                    return moment(value , 'HH:mm:ss').format('HH:mm');
 
-      }
+            }
+        },
 
     }
 </script>
@@ -50,7 +63,7 @@
     font-family: FuturaStdBook;
     font-size: 25px;
 
-  
+
   }
   .title-sty{
     font-family: FuturaStdBook;
@@ -60,7 +73,7 @@
     margin-top: 6em;
     padding:2em;
     margin-left: 1em;
-  }  
+  }
 
   .hour{
     color:white;

@@ -24,3 +24,4 @@ Route::get('/getSighting', 'ControlController@getSighting')->name('getSighting')
 Route::get('/getTimePage', 'ControlController@getTimePage')->name('getTimePage');
 Route::get('/getInformation' , 'ControlController@getInformation')->name('getInformation');
 Route::get('/getDailyProgram2' , 'ControlController@getDailyProgramNew');
+Route::get('/getCurrentDaily' , 'ControlController@getCurrentDaily');

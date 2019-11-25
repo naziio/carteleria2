@@ -26,6 +26,7 @@
     "dependencies": {
         "leaflet": "^1.5.1",
         "moment": "^2.24.0",
+        "suncalc": "^1.8.0",
         "vue-plain-slider": "^1.1.1",
         "vue-router": "^3.1.3",
         "vue2-leaflet": "^2.2.1"

@@ -71,7 +71,7 @@
                   <path class="sun-ray-one" d="M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z"></path>
                   </svg>
                   <span class="hour-time" style="display:flex;font-size:44px;justify-content:center">
-                    08:00
+                    {{this.sun.sunrise  |  hourformat}}
                   </span>
                 </div>
                 <div class="sun-two">
@@ -92,7 +92,7 @@
                       <path class="sun-ray-one" d="M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z"></path>
                   </svg>
                   <span class="hour-time" style="display:flex;font-size:44px;justify-content:center">
-                    17:00
+                    {{this.sun.sunset |  hourformat}}
                   </span>
                 </div>
               </div>
@@ -108,13 +108,15 @@
 <script>
     import Bus from '../EventBus';
     import Slider from 'vue-plain-slider'
-
+    var SunCalc = require('suncalc');
+    import moment from 'moment'
     export default {
       props:['state'],
       components: { Slider  },
       data(){
         return{
-            data: {}
+            data: {},
+            sun: {},
         }
       },
 
@@ -130,10 +132,17 @@
           loadWeather(){
               axios.get('/getWeatherStation').then((response) => {
                   this.data = response.data.data
-              });
-          }
+                  this.sun = SunCalc.getTimes(new Date(),this.data.latitude, this.data.longitude)
+              })
+          },
+      },
+        filters: {
+            hourformat: function (value) {
+                if (value)
+                    return moment(value , 'HH:mm:ss').format('HH:mm');
 
-      }
+            }
+        },
 
     }
 </script>

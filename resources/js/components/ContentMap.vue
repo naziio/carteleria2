@@ -3,15 +3,18 @@
       <div class="title">
           <span class="title-sty">Map</span>
      </div>
-      <div id="map" ref="leaflet"></div>
+   <!--    <div id="map" ref="leaflet"></div> -->
+      <div>
+          <img src="http://cdn.sci-news.com/images/enlarge5/image_6404e-Reference-Elevation-Model-Antarctica.jpg">
+      </div>
   </div>
 </template>
 
 <script>
     import Bus from '../EventBus';
-    import * as Vue2Leaflet from 'vue2-leaflet' // VALID
+    /* import * as Vue2Leaflet from 'vue2-leaflet' // VALID
     import {LMap, LTileLayer, LMarker} from 'vue2-leaflet'
-
+*/
     export default {
       props:['state'],
       data(){
@@ -28,11 +31,14 @@
 
       },
       mounted() {
-        this.initMap();
+       /* this.initMap();
         this.loadCoord();
+
+       */
+
       },
 
-      methods:{    
+      methods:{
         initMap() {
 
             this.map = L.map('map').fitWorld();
@@ -65,7 +71,7 @@
               this.lng = response.data.data.longitude
             });
         },
-      },        
+      },
 
     }
 </script>
@@ -74,7 +80,7 @@
 
  .title{
     color:white;
-    position: absolute;  
+    position: absolute;
     padding:2em;
     font-family: FuturaStdBook;
     font-size: 25px;

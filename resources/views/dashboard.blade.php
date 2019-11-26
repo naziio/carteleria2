@@ -22,6 +22,10 @@
            font-family: 'FuturaStdMedium';
            src: url("../fonts/FuturaStd-Medium.otf");
         }
+           @font-face {
+               font-family: Didot;
+                src: url("../fonts/Didot.ttc");
+           }
        </style>
 </head>
 <body>
@@ -30,8 +34,9 @@
 
     <dashboard></dashboard>
   </div>
-    {{-- <script async src="{{asset('js/leaflet.js')}}"></script> --}}
+    {{-- <script async src="{{asset('js/leaflet.js')}}"></script>
     <script src="{{ asset('js/initial.js') }}"></script>
+    --}}
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

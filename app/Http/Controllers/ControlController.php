@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\ActiveVoyage;
 use App\DailyProgram;
 use App\DailyProgramInformation;
 use App\Http\Controllers\Api\BaseController;
 use App\Menu;
+use App\Parameter;
 use App\Publication;
 use App\Voyage;
 use App\Weather;
@@ -75,17 +77,8 @@ class ControlController extends BaseController
 
     public function getTimePage()
     {
-        $timePage = [
-          'state1' => 10000,
-          'state2' => 10000,
-          'state3' => 10000,
-          'state4' => 10000,
-          'state5' => 10000,
-          'state6' => 10000,
-          'state7' => 10000,
-          'state8' => 10000
-        ];
-        return $this->sendResponse($timePage, 'Time retrieved successfully.')  ;
+        $timePage = Parameter::first();
+        return $this->sendResponse($timePage->toArray(), 'Time retrieved successfully.')  ;
     }
 
     public function getInformation()
@@ -97,21 +90,19 @@ class ControlController extends BaseController
 
     public function getDailyProgramNew()
     {
-        $dailyProgram = DailyProgram::get();
+        $dailyProgram = DailyProgram::whereHas('voyage.active_voyage')
+            ->where('date',Carbon::now()->toDateString())
+            ->orderBy('hour','ASC')
+            ->get();
         return $this->sendResponse($dailyProgram->toArray(), 'Daily program retrieved successfully.')  ;
 
     }
 
     public function getCurrentDaily()
     {
-        $dailyProgram = Publication::with(['voyage' => function($query) {
-            $query->where('embark', '>=', Carbon::now()->toDateString())
-                ->where('desembark', '<=',Carbon::now()->toDateString());
-        }])
-            ->where('active', 1)
-            ->where('realization_date','>=',Carbon::now())
-            ->where('description_en','<>','sighting')
-            ->where('description_en','<>','gallery')
+        $dailyProgram = DailyProgram::whereHas('voyage.active_voyage')
+            ->where('hour','>=',Carbon::now()->toTimeString())
+            ->where('date',Carbon::now()->toDateString())
             ->first();
 
         return $this->sendResponse($dailyProgram->toArray(), 'Daily program retrieved successfully.')  ;

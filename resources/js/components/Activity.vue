@@ -6,7 +6,7 @@
 
     <div class="description">
 
-      <span class="hour">  {{ data.realization_date | hourformat}}</span>
+      <span class="hour">  {{ data.hour | hourformat}}</span>
       <p class="text-description"> {{data.title_en }}</p>
     </div>
 

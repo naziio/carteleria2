@@ -1,10 +1,10 @@
-const CACHE_NAME = 'cache-1';
+/* const CACHE_NAME = 'cache-1';
 
 self.addEventListener('install', e => {
 
   const cacheProm = caches.open(CACHE_NAME)
         .then( cache => {
-          
+
           return  cache.addAll([
               '/',
               '/index.php',
@@ -19,7 +19,7 @@ self.addEventListener('install', e => {
               // 'https://unpkg.com/leaflet@1.3.4/dist/leaflet.js'
             ])
         })
-    
+
     e.waitUntil(cacheProm);
 
 });
@@ -72,9 +72,12 @@ self.addEventListener('fetch', e => {
   e.respondWith(respuesta);
 
   //1- Cache Only
-  
+
   // e.respondWith( caches.match(e.request));
 
 
 
 });
+
+*/
+

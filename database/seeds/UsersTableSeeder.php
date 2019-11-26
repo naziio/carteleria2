@@ -290,7 +290,7 @@ class UsersTableSeeder extends Seeder
             'voyages_id_voyage' => 1,
             'publications_id_pub' => 1,
             'title_en' => 'Neko Harbour 6',
-            'hour' => '15:00',
+            'hour' => '23:00',
             'date' => Carbon::now()->toDateString(),
         ]);
         DB::table('daily_programs')->insert([
@@ -308,6 +308,27 @@ class UsersTableSeeder extends Seeder
         DB::table('daily_programs_information')->insert([
             'title_en' => 'ALERT',
             'description_en' => 'Go with caution, winds of more the 200 km/h.',
+        ]);
+
+        DB::table('parameters')->insert([
+           'template1' => 10000,
+           'template2' => 20000,
+           'template3' => 10000,
+           'template4' => 10000,
+           'template5' => 10000,
+           'template6' => 10000,
+           'template7' => 10000,
+           'template8' => 10000,
+        ]);
+
+        DB::table('voyages')->insert([
+                'embark' => Carbon::now()->toDateString(),
+                'desembark' => Carbon::now()->toDateString()
+        ]);
+
+        DB::table('active_voyage')->insert([
+            'voyages_id_voyage' => 1,
+            'voyage_code' => 1
         ]);
 
         /*

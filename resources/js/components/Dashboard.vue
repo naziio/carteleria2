@@ -20,7 +20,7 @@
       components: { DailyProgram, LiveModule},
       data(){
         return{
-          state: 6,
+          state: 1,
           videoState: "videos/daily.mp4",
           time1: '',
           time2: '',
@@ -93,14 +93,14 @@
           },
           loadTimePage(){
             axios.get('/getTimePage').then((response) => {
-              this.time1 = response.data.data.state1
-              this.time2 = response.data.data.state2
-              this.time3 = response.data.data.state3
-              this.time4 = response.data.data.state4
-              this.time5 = response.data.data.state5
-              this.time6 = response.data.data.state6
-              this.time7 = response.data.data.state7
-              this.time8 = response.data.data.state8
+              this.time1 = response.data.data.template1
+              this.time2 = response.data.data.template2
+              this.time3 = response.data.data.template3
+              this.time4 = response.data.data.template4
+              this.time5 = response.data.data.template5
+              this.time6 = response.data.data.template6
+              this.time7 = response.data.data.template7
+              this.time8 = response.data.data.template8
 
               setTimeout(() => {
                  this.visualizeContentTransition()

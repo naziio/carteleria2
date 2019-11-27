@@ -24,7 +24,7 @@ class ControlController extends BaseController
 
     public function getWeather()
     {
-        $weather = WeatherStation::orderBy('id_ws', 'ASC')
+        $weather = WeatherStation::orderBy('id_ws', 'DESC')
             ->first();
         return $this->sendResponse($weather->toArray(), 'Weather retrieved successfully.');
     }
@@ -77,7 +77,9 @@ class ControlController extends BaseController
 
     public function getTimePage()
     {
-        $timePage = Parameter::first();
+        $timePage = Parameter::whereHas('voyage.active_voyage')->first();
+        if ($timePage == null)
+            $timePage = collect('sin datos' );
         return $this->sendResponse($timePage->toArray(), 'Time retrieved successfully.')  ;
     }
 
@@ -85,6 +87,9 @@ class ControlController extends BaseController
     {
         $information = DailyProgramInformation::all();
         $information = $information->random(1)->first();
+        if ($information == null) {
+            $information = collect('sin datos');
+        }
         return $this->sendResponse($information->toArray(), 'Information retrieved successfully.')  ;
     }
 
@@ -94,6 +99,9 @@ class ControlController extends BaseController
             ->where('date',Carbon::now()->toDateString())
             ->orderBy('hour','ASC')
             ->get();
+        if ($dailyProgram == null) {
+            $dailyProgram = collect('sin datos');
+        }
         return $this->sendResponse($dailyProgram->toArray(), 'Daily program retrieved successfully.')  ;
 
     }
@@ -105,6 +113,9 @@ class ControlController extends BaseController
             ->where('date',Carbon::now()->toDateString())
             ->first();
 
+        if ($dailyProgram == null) {
+            $dailyProgram = collect('sin datos');
+        }
         return $this->sendResponse($dailyProgram->toArray(), 'Daily program retrieved successfully.')  ;
 
     }

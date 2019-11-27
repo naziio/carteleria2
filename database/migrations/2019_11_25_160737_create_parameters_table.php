@@ -15,6 +15,7 @@ class CreateParametersTable extends Migration
     {
         Schema::create('parameters', function (Blueprint $table) {
             $table->bigIncrements('id_parameters');
+            $table->unsignedInteger('voyages_id_voyage');
             $table->integer('template1');
             $table->integer('template2');
             $table->integer('template3');

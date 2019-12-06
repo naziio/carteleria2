@@ -47,10 +47,12 @@
             // }
              // else if(this.state === 2){
             if(this.state === 1){
-                this.state = 3;
+               this.state = 3;
 
                this.$router.push('state-three')
                setTimeout(() => { this.visualizeContentTransition() }, this.time3);
+              
+
             }
             else if(this.state === 3){
 
@@ -61,11 +63,11 @@
             }
             else if(this.state === 4){
 
-              this.state = 5;
+              this.state = 6;
 
 
-              this.$router.push('state-five')
-              setTimeout(() => { this.visualizeContentTransition() }, this.time5);
+              this.$router.push('state-six')
+              setTimeout(() => { this.visualizeContentTransition() }, this.time6);
             }
             else if(this.state === 5){
 

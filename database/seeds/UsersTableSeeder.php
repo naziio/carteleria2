@@ -311,7 +311,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('parameters')->insert([
-            'voyages_id_voyage' => 2,
+            'voyages_id_voyage' => 1,
            'template1' => 10000,
            'template2' => 20000,
            'template3' => 10000,

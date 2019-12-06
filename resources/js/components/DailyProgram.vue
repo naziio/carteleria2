@@ -9,23 +9,9 @@
             {{currentDate | MonthFormat}}
          </span>
       </div>
-      <div class="col-md-6">
-        <Slider
-              ref="Slider"
-              direction="vertical"
-              :mousewheel-control="false"
-              :performance-mode="true"
-              :loop="true"
-              :speed="1000"
-              :interval="4000"
-              :auto="true"
-              :curPage= "0"
-              :async-data="false"
-              @slide-change-start="onSlideChangeStart"
-              @slide-change-end="onSlideChangeEnd"
-              class="slider-carou">
+      <div class="col-md-6 slider-carou">
               <div v-for="(item, index) in data" style="color:#97939a;" >
-                  <div class="row"  :class="'sty-'+ index" style="height:100%;" >
+                  <div class="row"  :class="currentDaily(item, index)" style="height:100%;" >
                       <span  class="daily-hour" style="display:flex;align-items:center;justify-content: start;height: 100%;margin-left: 0.4em;">
                         {{ item.hour | hourformat}}
                       </span>
@@ -36,7 +22,6 @@
                       </template>
                   </div>
               </div>
-        </Slider>
       </div>
       <div class="col-md-3">
         <div class="title-left">
@@ -63,14 +48,15 @@
         return{
           data: {},
           information: {},
-          currentDate : {}
+          currentDate : {},
+          active : 'active'
         }
       },
       mounted() {
         this.loadDaily();
         this.loadInformation();
 
-       setTimeout(() => { $('.sty-0').addClass('active'); }, '2000');
+      // setTimeout(() => { $('.sty-0').addClass('active'); }, '2000');
 
       },
       methods:{
@@ -92,6 +78,14 @@
               this.currentDate = new Date();
           });
         },
+          currentDaily(item, index){
+               if (moment(this.currentDate).format('HH:mm:ss') > item.hour ) {
+                   return '';
+               } else {
+                   return 'active';
+               }
+
+          },
         loadInformation(){
           axios.get('/getInformation').then((response) => {
             // console.log(response.data.data)
